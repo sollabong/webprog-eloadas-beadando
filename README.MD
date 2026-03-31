@@ -3,7 +3,7 @@
 Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves beadandó feladat.
 
 ## Csapattagok és munkamegosztás
-* Simon Gábor János [NEPTUN KÓD!!!]
+* Sipos Gábor János RUG70U
 * Soltész-Kéri Gábor D0345Y
 * Takács Dániel Zoltán F5MJUS
 
