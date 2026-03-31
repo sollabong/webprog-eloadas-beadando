@@ -1,0 +1,29 @@
+{
+  "name": "webprog-eloadas-beadando",
+  "version": "1.0.0",
+  "description": "Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves beadandó feladat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sollabong/webprog-eloadas-beadando.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sollabong/webprog-eloadas-beadando/issues"
+  },
+  "homepage": "https://github.com/sollabong/webprog-eloadas-beadando#readme",
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1"
+  }
+}
