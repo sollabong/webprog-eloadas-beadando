@@ -35,9 +35,9 @@ const Movies = () => {
     szines: -1,
   });
   const [activeGenre, setActiveGenre] = useState(null);
-  const filteredFilms = activeGenre 
-  ? films.filter(film => film.mufaj === activeGenre)
-  : films;
+  const filteredFilms = activeGenre
+    ? films.filter((film) => film.mufaj === activeGenre)
+    : films;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -99,7 +99,7 @@ const Movies = () => {
           <label>Cím</label>
           <input
             type="text"
-            name="filmcim" 
+            name="filmcim"
             value={formData.filmcim}
             onChange={handleChange}
             required
@@ -110,14 +110,12 @@ const Movies = () => {
         <div className="form-group">
           <label>Műfaj</label>
           <select
-            name="mufaj" 
+            name="mufaj"
             value={formData.mufaj}
             onChange={handleChange}
             required
           >
-            <option value="">
-              -- Válassz műfajt --
-            </option>
+            <option value="">-- Válassz műfajt --</option>
             {Object.keys(genreColors)
               .sort()
               .map((mufaj) => (
@@ -176,8 +174,10 @@ const Movies = () => {
 
       <GenreLegend
         genreColors={genreColors}
-        activeGenre={activeGenre} 
-        onGenreClick={(genre) => setActiveGenre(activeGenre === genre ? null : genre)}
+        activeGenre={activeGenre}
+        onGenreClick={(genre) =>
+          setActiveGenre(activeGenre === genre ? null : genre)
+        }
       />
 
       <div className="movie-grid">
