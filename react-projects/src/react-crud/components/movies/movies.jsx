@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { initialFilms } from '../../data.js';
+import MovieCard from '../movie-card/movie-card.jsx';
 import './movies.css';
 
 const genreColors = {
@@ -57,6 +58,29 @@ const Movies = () => {
       setFilms([newFilm, ...films]);
     }
     setFormData({ filmcim: '', mufaj: '', hossz: '', szines: -1 });
+  };
+
+  const deleteItem = (id) => {
+    if (window.confirm('Biztosan törlöd ezt a filmet?')) {
+      setFilms(films.filter((f) => f.fkod !== id));
+    }
+  };
+
+  const startEdit = (film) => {
+    setFormData({
+      filmcim: film.filmcim,
+      mufaj: film.mufaj,
+      hossz: film.hossz,
+      szines: film.szines,
+    });
+    setEditId(film.fkod);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleWatch = (id) => {
+    setFilms(
+      films.map((f) => (f.fkod === id ? { ...f, watched: !f.watched } : f))
+    );
   };
 
   return (
@@ -144,9 +168,17 @@ const Movies = () => {
           )}
         </div>
       </form>
-
       <div className="movie-grid">
-        {/* MovieCard komponens használata a filmek megjelenítéséhez */}
+        {films.map((film) => (
+          <MovieCard
+            key={film.fkod}
+            film={film}
+            onEdit={startEdit}
+            onDelete={deleteItem}
+            onToggleWatch={toggleWatch}
+            genreColor={genreColors[film.mufaj] || '#ffffff'}
+          />
+        ))}
       </div>
     </section>
   );
