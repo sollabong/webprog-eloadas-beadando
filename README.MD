@@ -3,11 +3,13 @@
 Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves beadandó feladat.
 
 ## Csapattagok és munkamegosztás
-* Sipos Gábor János RUG70U
-* Soltész-Kéri Gábor D0345Y
-* Takács Dániel Zoltán F5MJUS
+
+- Sipos Gábor János RUG70U
+- Soltész-Kéri Gábor D0345Y
+- Takács Dániel Zoltán F5MJUS
 
 ## Alkalmazás felépítése
+
 1.  **Főoldal:** Statikus bemutatkozó oldal.
 2.  **JavaScript CRUD:** Adatkezelés natív JS-el, tömbben tárolt adatokkal.
 3.  **React CRUD:** Adatkezelés React komponensekkel és állapottárolással.
@@ -17,12 +19,15 @@ Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves bead
 7.  **OOJS:** Objektumorientált JavaScript grafikus alkalmazás.
 
 ## Technikai részletek
+
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+), React
 - **Backend:** PHP, MySQL (XAMPP környezetben tesztelve)
 - **Verziókövetés:** Git & GitHub
 
 ## Helyi futtatás
+
 `npm install` után `npm run dev` (a React részhez).
 
 ## Elérhetőség (Online tárhely)
+
 [TÁRHELY!!!]
