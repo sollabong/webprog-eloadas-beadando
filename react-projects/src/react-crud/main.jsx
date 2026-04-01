@@ -1,10 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import Movies from './components/movies/movies.jsx';
+import Header from '../shared-components/header/header.jsx';
 import '../../../style/style.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Movies />
+    <Header />
+    <main>
+      <Movies />
+    </main>
   </StrictMode>
 );

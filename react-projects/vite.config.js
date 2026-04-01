@@ -3,15 +3,20 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  root: '../', 
   server: {
-    open: 'react.html',
+    open: '/index.html',
+    fs: {
+      allow: ['../'], 
+    },
   },
   build: {
+    outDir: 'react-projects/dist',
     rollupOptions: {
       input: {
-        crud: 'react.html',
-        // spa: 'spa.html',
-        // axios: 'axios.html',
+        react: 'react.html',
+        spa: 'spa.html',
+        axios: 'axios.html',
       },
     },
   },
