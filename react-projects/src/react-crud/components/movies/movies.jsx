@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { initialFilms } from '../../data.js';
 import MovieCard from '../movie-card/movie-card.jsx';
+import GenreLegend from '../genre-legend/genre-legend.jsx';
 import './movies.css';
 
 const genreColors = {
@@ -33,6 +34,10 @@ const Movies = () => {
     hossz: '',
     szines: -1,
   });
+  const [activeGenre, setActiveGenre] = useState(null);
+  const filteredFilms = activeGenre 
+  ? films.filter(film => film.mufaj === activeGenre)
+  : films;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -168,8 +173,15 @@ const Movies = () => {
           )}
         </div>
       </form>
+
+      <GenreLegend
+        genreColors={genreColors}
+        activeGenre={activeGenre} 
+        onGenreClick={(genre) => setActiveGenre(activeGenre === genre ? null : genre)}
+      />
+
       <div className="movie-grid">
-        {films.map((film) => (
+        {filteredFilms.map((film) => (
           <MovieCard
             key={film.fkod}
             film={film}
