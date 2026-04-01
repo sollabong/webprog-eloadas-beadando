@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves beadandó feladat.",
   "main": "index.js",
+  "workspaces": [
+    "react-projects"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run dev --prefix react-projects",
+    "build": "npm run build --prefix react-projects",
+    "preview": "npm run preview --prefix react-projects",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
