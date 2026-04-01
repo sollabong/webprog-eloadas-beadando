@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves beadandó feladat.",
   "main": "index.js",
+  "workspaces": [
+    "react-projects"
+  ],
   "scripts": {
     "start": "npm run dev --prefix react-projects",
     "build": "npm run build --prefix react-projects",
