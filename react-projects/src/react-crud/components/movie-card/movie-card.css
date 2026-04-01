@@ -76,7 +76,7 @@
 .movie-card.watched {
   opacity: 0.6;
   filter: grayscale(0.6);
-  border-top-color: #444; 
+  border-top-color: #444;
 }
 
 .movie-card.watched h4 {
@@ -87,7 +87,7 @@
 .movie-card.watched:hover {
   opacity: 1;
   filter: grayscale(0);
-  border-top-color: var(--border); 
+  border-top-color: var(--border);
   border-color: var(--border);
   box-shadow: 0 10px 20px -10px #ffffff77;
 }
