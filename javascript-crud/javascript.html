@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mozik - JS CRUD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="javascript.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Web programozás-1 Előadás Házi feladat</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Főoldal</a></li>
+          <li><a href="javascript.html">Javascript CRUD</a></li>
+          <li><a href="react.html">React CRUD</a></li>
+          <li><a href="spa.html">SPA</a></li>
+          <li><a href="fetchapi.html">Fetch API</a></li>
+          <li><a href="axios.html">Axios CRUD</a></li>
+          <li><a href="oojs.html">OOJS App</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Filmek kezelése (Javascript CRUD)</h2>
+
+        <div class="crud-form">
+          <input type="text" id="filmcim" placeholder="Film címe" />
+          <input type="text" id="mufaj" placeholder="Műfaj" />
+          <input type="number" id="hossz" placeholder="Hossz (perc)" />
+          <label class="checkbox-container">
+            <span>Színes</span>
+            <input type="checkbox" id="szines" />
+            <span class="checkmark"></span>
+          </label>
+          <button onclick="handleSave()" id="saveBtn">Hozzáadás</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Cím</th>
+                <th>Műfaj</th>
+                <th>Hossz</th>
+                <th>Színes</th>
+                <th>Műveletek</th>
+              </tr>
+            </thead>
+            <tbody id="dataBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-names">
+          <span class="footer-name">
+            Sipos Gábor János <span class="footer-neptun"> RUG70U</span>
+          </span>
+          <span class="footer-name">
+            Soltész-Kéri Gábor <span class="footer-neptun"> D0345Y</span>
+          </span>
+          <span class="footer-name">
+            Takács Dániel Zoltán <span class="footer-neptun"> F5MJUS</span>
+          </span>
+        </div>
+
+        <div class="footer-copyright">
+          © 2026 Web programozás-1 Előadás Beadandó projektmunka
+        </div>
+      </div>
+    </footer>
+    <script src="data.js"></script>
+    <script src="javascript.js"></script>
+  </body>
+</html>
