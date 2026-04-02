@@ -3,11 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  root: '../', 
+  root: '../',
   server: {
     open: '/index.html',
     fs: {
-      allow: ['../'], 
+      allow: ['../'],
     },
   },
   build: {
