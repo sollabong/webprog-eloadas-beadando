@@ -5,6 +5,12 @@
   padding: 20px;
 }
 
+.search-fields {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
 #searchInput {
   flex: 1;
   background-color: var(--secondary-background);
