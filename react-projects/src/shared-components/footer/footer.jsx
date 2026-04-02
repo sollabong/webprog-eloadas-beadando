@@ -17,7 +17,8 @@ const Footer = () => {
         </div>
 
         <div className="footer-copyright">
-          © {currentYear} Web programozás-1 Előadás Beadandó projektmunka - MInden jog fenntartva.
+          © {currentYear} Web programozás-1 Előadás Beadandó projektmunka -
+          Minden jog fenntartva.
         </div>
       </div>
     </footer>
