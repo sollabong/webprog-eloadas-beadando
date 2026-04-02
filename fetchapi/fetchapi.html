@@ -14,6 +14,7 @@
     />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../javascript-crud/javascript.css" />
+    <link rel="stylesheet" href="fetchapi.css" />
   </head>
   <body>
     <header>
@@ -48,6 +49,20 @@
             <span class="checkmark"></span>
           </label>
           <button onclick="handleSave()" id="saveBtn">Hozzáadás</button>
+        </div>
+
+        <div class="search-section">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <label for="searchInput" class="search-label">Mozi kereső:</label>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Írd be a film címét..."
+            />
+            <button onclick="handleSearch()" id="searchBtn">Keresés</button>
+            <div id="searchResults" class="results-dropdown"></div>
+          </div>
         </div>
 
         <div class="table-container">
