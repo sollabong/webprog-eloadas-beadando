@@ -12,8 +12,27 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch($method) {
     case 'GET':
-        $result = $conn->query("SELECT * FROM film ORDER BY fkod DESC");
-        echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+        if (isset($_GET['kereses'])) {
+            $s = "%" . $conn->real_escape_string($_GET['kereses']) . "%";
+            
+            $sql = "SELECT 
+                        f.filmcim, 
+                        f.mufaj, 
+                        IFNULL(m.mozinev, 'Nincs adat') AS mozinev, 
+                        IFNULL(m.cim, 'Nincs adat') AS mozi_cim 
+                    FROM film f
+                    LEFT JOIN hely h ON f.fkod = h.fkod
+                    LEFT JOIN mozi m ON h.moziazon = m.moziazon
+                    WHERE f.filmcim LIKE ?";
+                    
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $s);
+            $stmt->execute();
+            echo json_encode($stmt->get_result()->fetch_all(MYSQLI_ASSOC));
+        } else {
+            $result = $conn->query("SELECT * FROM film ORDER BY fkod DESC");
+            echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+        }
         break;
 
     case 'POST':
