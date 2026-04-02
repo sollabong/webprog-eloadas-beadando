@@ -1,0 +1,91 @@
+.search-section {
+  margin-bottom: 32px;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.search-fields {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+#searchInput {
+  flex: 1;
+  background-color: var(--secondary-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+  border-color: var(--primary);
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.search-card {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.search-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.search-card:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.search-card h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.search-card .mufaj {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mozi-info {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  font-size: 0.9rem;
+}
+
+.mozi-info p {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mozi-info i {
+  color: var(--primary);
+  width: 16px;
+}
+
+.loading,
+.no-result {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}

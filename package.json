@@ -9,6 +9,7 @@
   "scripts": {
     "start": "npm run dev --prefix react-projects",
     "build": "npm run build --prefix react-projects",
+    "setup-db": "C:/xampp/php/php.exe shared-db/db-config.php",
     "preview": "npm run preview --prefix react-projects",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
