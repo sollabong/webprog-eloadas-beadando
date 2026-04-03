@@ -16,7 +16,7 @@ export default defineConfig({
       input: {
         react: 'react.html',
         // spa: 'spa.html',
-        // axios: 'axios.html',
+        axios: 'axios.html',
       },
     },
   },
