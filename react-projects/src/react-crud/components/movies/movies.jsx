@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { initialFilms } from '../../data.js';
-import MovieCard from '../movie-card/movie-card.jsx';
-import GenreLegend from '../genre-legend/genre-legend.jsx';
+import MovieCard from '../../../shared-components/movie-card/movie-card.jsx';
+import GenreLegend from '../../../shared-components/genre-legend/genre-legend.jsx';
 import './movies.css';
 
 const genreColors = {
