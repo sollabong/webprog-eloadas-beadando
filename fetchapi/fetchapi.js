@@ -1,5 +1,5 @@
 const API_URL =
-  'http://localhost/webprog-eloadas-beadando/fetchapi/server/api.php';
+  'http://localhost/webprog-eloadas-beadando/server/api.php';
 let films = [];
 let editId = null;
 
