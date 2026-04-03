@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') exit;
 
-require_once '../../shared-db/db-config.php';
+require_once 'shared-db\db-config.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 
