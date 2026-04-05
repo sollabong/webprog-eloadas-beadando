@@ -28,23 +28,25 @@ const genreColors = {
   természetfilm: '#00e676',
 };
 
-const MoviesAdvanced =  () => {
+const MoviesAdvanced = () => {
   const [films, setFilms] = useState([]);
   const [moziLista, setMoziLista] = useState([]);
-  const [selectedMoziId, setSelectedMoziId] = useState(''); 
+  const [selectedMoziId, setSelectedMoziId] = useState('');
   const [activeGenre, setActiveGenre] = useState(null);
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState({
     filmcim: '',
     mufaj: '',
     hossz: '',
-    szines: -1
+    szines: -1,
   });
 
   const filteredFilms = films.filter((film) => {
     const genreMatch = !activeGenre || film.mufaj === activeGenre;
-    const moziMatch = !selectedMoziId || 
-    (film.moziazonok && film.moziazonok.split(',').includes(selectedMoziId.toString()));
+    const moziMatch =
+      !selectedMoziId ||
+      (film.moziazonok &&
+        film.moziazonok.split(',').includes(selectedMoziId.toString()));
     return genreMatch && moziMatch;
   });
 
@@ -53,14 +55,16 @@ const MoviesAdvanced =  () => {
       const data = await movieService.getAll();
       setFilms(data);
     } catch (error) {
-      console.error("Hiba a filmeknél:", error);
+      console.error('Hiba a filmeknél:', error);
     }
   };
 
   useEffect(() => {
     const fetchData = async () => {
       await loadFilms();
-      const moziRes = await fetch('http://localhost/webprog-eloadas-beadando/server/api.php?type=mozi');
+      const moziRes = await fetch(
+        'http://localhost/webprog-eloadas-beadando/server/api.php?type=mozi'
+      );
       const moziData = await moziRes.json();
       setMoziLista(moziData || []);
     };
@@ -77,9 +81,9 @@ const MoviesAdvanced =  () => {
         await movieService.create(formData);
       }
       setFormData({ filmcim: '', mufaj: '', hossz: '', szines: -1 });
-      loadFilms(); 
+      loadFilms();
     } catch (error) {
-      alert("Hiba történt a mentés során!", error);
+      alert('Hiba történt a mentés során!', error);
     }
   };
 
@@ -89,7 +93,7 @@ const MoviesAdvanced =  () => {
         await movieService.delete(id);
         loadFilms();
       } catch (error) {
-        alert("Hiba történt a törlés során!", error);
+        alert('Hiba történt a törlés során!', error);
       }
     }
   };
@@ -103,7 +107,6 @@ const MoviesAdvanced =  () => {
       setFormData({ ...formData, [name]: value });
     }
   };
-
 
   const startEdit = (film) => {
     setFormData({
@@ -127,11 +130,11 @@ const MoviesAdvanced =  () => {
       <h2>
         <i className="fas fa-database"></i> Axios Movie CRUD
       </h2>
-      <CinemaSelector 
-        moziLista={moziLista} 
-        films={films} 
-        selectedMoziId={selectedMoziId} 
-        onSelectMozi={setSelectedMoziId} 
+      <CinemaSelector
+        moziLista={moziLista}
+        films={films}
+        selectedMoziId={selectedMoziId}
+        onSelectMozi={setSelectedMoziId}
       />
       <form onSubmit={handleSave} className="crud-form">
         <div className="form-group">
