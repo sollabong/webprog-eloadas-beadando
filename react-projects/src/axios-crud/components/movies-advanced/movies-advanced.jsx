@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import { initialFilms } from '../../data.js';
+import { useEffect, useState } from 'react';
+import movieService from '../../movie-service.js';
 import MovieCard from '../../../shared-components/movie-card/movie-card.jsx';
 import GenreLegend from '../../../shared-components/genre-legend/genre-legend.jsx';
-import './movies.css';
+import CinemaSelector from '../cinema-selector/cinema-selector.jsx';
+import './movies-advanced.css';
+
+const API_URL = 'http://localhost/webprog-eloadas-beadando/server/api.php';
 
 const genreColors = {
   dráma: '#00bcd4',
@@ -25,8 +28,11 @@ const genreColors = {
   természetfilm: '#00e676',
 };
 
-const Movies = () => {
-  const [films, setFilms] = useState(initialFilms);
+const MoviesAdvanced = () => {
+  const [films, setFilms] = useState([]);
+  const [moziLista, setMoziLista] = useState([]);
+  const [selectedMoziId, setSelectedMoziId] = useState('');
+  const [activeGenre, setActiveGenre] = useState(null);
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState({
     filmcim: '',
@@ -34,10 +40,63 @@ const Movies = () => {
     hossz: '',
     szines: -1,
   });
-  const [activeGenre, setActiveGenre] = useState(null);
-  const filteredFilms = activeGenre
-    ? films.filter((film) => film.mufaj === activeGenre)
-    : films;
+
+  const filteredFilms = films.filter((film) => {
+    const genreMatch = !activeGenre || film.mufaj === activeGenre;
+    const moziMatch =
+      !selectedMoziId ||
+      (film.moziazonok &&
+        film.moziazonok.split(',').includes(selectedMoziId.toString()));
+    return genreMatch && moziMatch;
+  });
+
+  const loadFilms = async () => {
+    try {
+      const data = await movieService.getAll();
+      setFilms(data);
+    } catch (error) {
+      console.error('Hiba a filmeknél:', error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await loadFilms();
+      const moziRes = await fetch(
+        'http://localhost/webprog-eloadas-beadando/server/api.php?type=mozi'
+      );
+      const moziData = await moziRes.json();
+      setMoziLista(moziData || []);
+    };
+    fetchData();
+  }, []);
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    try {
+      if (editId) {
+        await movieService.update(editId, formData);
+        setEditId(null);
+      } else {
+        await movieService.create(formData);
+      }
+      setFormData({ filmcim: '', mufaj: '', hossz: '', szines: -1 });
+      loadFilms();
+    } catch (error) {
+      alert('Hiba történt a mentés során!', error);
+    }
+  };
+
+  const deleteItem = async (id) => {
+    if (window.confirm('Biztosan törlöd ezt a filmet?')) {
+      try {
+        await movieService.delete(id);
+        loadFilms();
+      } catch (error) {
+        alert('Hiba történt a törlés során!', error);
+      }
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -46,28 +105,6 @@ const Movies = () => {
       setFormData({ ...formData, szines: checked ? -1 : 0 });
     } else {
       setFormData({ ...formData, [name]: value });
-    }
-  };
-
-  const handleSave = (e) => {
-    e.preventDefault();
-    if (editId) {
-      setFilms(
-        films.map((f) =>
-          f.fkod === editId ? { ...formData, fkod: editId } : f
-        )
-      );
-      setEditId(null);
-    } else {
-      const newFilm = { ...formData, fkod: Date.now() };
-      setFilms([newFilm, ...films]);
-    }
-    setFormData({ filmcim: '', mufaj: '', hossz: '', szines: -1 });
-  };
-
-  const deleteItem = (id) => {
-    if (window.confirm('Biztosan törlöd ezt a filmet?')) {
-      setFilms(films.filter((f) => f.fkod !== id));
     }
   };
 
@@ -91,9 +128,14 @@ const Movies = () => {
   return (
     <section className="crud-section">
       <h2>
-        <i className="fas fa-database"></i> React Movie CRUD
+        <i className="fas fa-database"></i> Axios Movie CRUD
       </h2>
-
+      <CinemaSelector
+        moziLista={moziLista}
+        films={films}
+        selectedMoziId={selectedMoziId}
+        onSelectMozi={setSelectedMoziId}
+      />
       <form onSubmit={handleSave} className="crud-form">
         <div className="form-group">
           <label>Cím</label>
@@ -152,7 +194,7 @@ const Movies = () => {
 
         <div className="form-actions">
           <button type="submit" className="btn btn-save">
-            {editId ? 'Módosítás mentése' : 'Hozzáadás'}
+            {editId ? 'Módosítás mentése' : 'Film hozzáadása'}
           </button>
         </div>
         <div className="form-actions">
@@ -171,7 +213,6 @@ const Movies = () => {
           )}
         </div>
       </form>
-
       <GenreLegend
         genreColors={genreColors}
         activeGenre={activeGenre}
@@ -179,7 +220,6 @@ const Movies = () => {
           setActiveGenre(activeGenre === genre ? null : genre)
         }
       />
-
       <div className="movie-grid">
         {filteredFilms.map((film) => (
           <MovieCard
@@ -196,4 +236,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default MoviesAdvanced;

@@ -6,20 +6,25 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') exit;
 
-require_once '../../shared-db/db-config.php';
+require_once 'shared-db\db-config.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch($method) {
     case 'GET':
-        if (isset($_GET['kereses'])) {
+        if (isset($_GET['type']) && $_GET['type'] == 'mozi') {
+            $result = $conn->query("SELECT * FROM mozi ORDER BY mozinev");
+            echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+        }
+        else if (isset($_GET['kereses'])) {
             $s = "%" . $conn->real_escape_string($_GET['kereses']) . "%";
             
             $sql = "SELECT 
                         f.filmcim, 
                         f.mufaj, 
                         IFNULL(m.mozinev, 'Nincs adat') AS mozinev, 
-                        IFNULL(m.cim, 'Nincs adat') AS mozi_cim 
+                        IFNULL(m.cim, 'Nincs adat') AS mozi_cim,
+                        h.moziazon
                     FROM film f
                     LEFT JOIN hely h ON f.fkod = h.fkod
                     LEFT JOIN mozi m ON h.moziazon = m.moziazon
@@ -30,8 +35,13 @@ switch($method) {
             $stmt->execute();
             echo json_encode($stmt->get_result()->fetch_all(MYSQLI_ASSOC));
         } else {
-            $result = $conn->query("SELECT * FROM film ORDER BY fkod DESC");
-            echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+            $sql = "SELECT f.*, GROUP_CONCAT(h.moziazon) AS moziazonok 
+            FROM film f 
+            LEFT JOIN hely h ON f.fkod = h.fkod 
+            GROUP BY f.fkod
+            ORDER BY f.fkod DESC";
+    $result = $conn->query($sql);
+    echo json_encode($result->fetch_all(MYSQLI_ASSOC));
         }
         break;
 
