@@ -1,5 +1,4 @@
-const API_URL =
-  'http://localhost/webprog-eloadas-beadando/server/api.php';
+const API_URL = 'http://localhost/webprog-eloadas-beadando/server/api.php';
 let films = [];
 let editId = null;
 
