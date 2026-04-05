@@ -1,0 +1,88 @@
+.cinema-selector-container {
+  background-color: var(--surface);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 33px;
+  box-shadow: var(--shadow);
+}
+
+.selector-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.selector-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.cinema-dropdown {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--secondary-background);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.cinema-dropdown:focus {
+  border-color: var(--primary);
+}
+
+.mozi-info-panel {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.mozi-info-content h4 {
+  margin: 0 0 16px 0;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.mozi-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mozi-details-grid p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.mozi-details-grid span {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.btn-clear {
+  background: transparent;
+  border: 1px solid #ff5252;
+  color: #ff5252;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-clear:hover {
+  background: #ff5252;
+  color: white;
+}
