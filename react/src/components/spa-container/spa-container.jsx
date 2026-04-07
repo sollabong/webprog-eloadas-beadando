@@ -1,6 +1,46 @@
 import './spa-container.css';
+import { useState } from 'react';
+import WeatherApp from '../../weather-app/weather-app.jsx';
 
 const SpaContainer = () => {
+  const [currentApp, setCurrentApp] = useState('menu');
+
+  if (currentApp === 'weather') {
+    return (
+      <div className="spa-page-container">
+        <section className="section">
+          <button
+            className="btn btn-outline"
+            onClick={() => setCurrentApp('menu')}
+            style={{ marginBottom: '20px' }}
+          >
+            <i className="fas fa-arrow-left"></i> Vissza az app választóhoz
+          </button>
+          <WeatherApp />
+        </section>
+      </div>
+    );
+  }
+
+  if (currentApp === 'valami') {
+    return (
+      <div className="spa-page-container">
+        <section className="section">
+          <button
+            className="btn btn-outline"
+            onClick={() => setCurrentApp('menu')}
+            style={{ marginBottom: '20px' }}
+          >
+            <i className="fas fa-arrow-left"></i> Vissza az app választóhoz
+          </button>
+          <div style={{ textAlign: 'center', padding: '40px' }}>
+            <h2>Second App - Fejlesztés alatt</h2>
+            <p>Hamarosan érkezik a másik alkalmazás!</p>
+          </div>
+        </section>
+      </div>
+    );
+  }
   return (
     <div className="spa-page-container">
       <section className="spa-container">
@@ -15,11 +55,15 @@ const SpaContainer = () => {
             </div>
             <div className="app-card-content">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Valós idejű időjárás adatok és 4 napos előrejelzés lekérése
+                városnév alapján, az OpenWeatherMap API segítségével.
               </p>
             </div>
-            <button type="button" className="btn btn-save">
+            <button
+              type="button"
+              className="btn btn-save"
+              onClick={() => setCurrentApp('weather')}
+            >
               Megnézem
             </button>
           </div>
