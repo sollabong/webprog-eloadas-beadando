@@ -1,0 +1,106 @@
+.weather-app-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-section {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  width: 100%;
+  padding: 24px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.search-fields {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+}
+
+#searchInput {
+  flex: 1;
+  background-color: var(--secondary-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+  border-color: var(--primary);
+}
+
+/* Fő kártya */
+.main-weather-card {
+  width: 100%;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.main-weather-card h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.main-temp {
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.weather-icon-lg {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.weather-desc {
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-bottom: 24px;
+}
+
+.weather-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.forecast-card {
+  background-color: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.forecast-card h4 {
+  margin: 0 0 16px 0;
+  font-weight: 400;
+}
+.forecast-temp {
+  font-size: 1.5rem;
+  margin: 16px 0;
+}
