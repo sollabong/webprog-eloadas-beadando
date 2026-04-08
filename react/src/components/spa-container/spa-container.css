@@ -1,0 +1,33 @@
+.spa-page-container {
+  height: 100%;
+}
+
+.spa-apps-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.app-card {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.app-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--primary);
+}
+
+.app-card-content {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
