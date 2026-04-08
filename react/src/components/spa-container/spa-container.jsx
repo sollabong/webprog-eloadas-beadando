@@ -1,6 +1,7 @@
 import './spa-container.css';
 import { useState } from 'react';
 import WeatherApp from '../../weather-app/weather-app.jsx';
+import MemoryGame from '../../memory-game-app/memory-game.jsx';
 
 const SpaContainer = () => {
   const [currentApp, setCurrentApp] = useState('menu');
@@ -22,7 +23,7 @@ const SpaContainer = () => {
     );
   }
 
-  if (currentApp === 'valami') {
+  if (currentApp === 'memory') {
     return (
       <div className="spa-page-container">
         <section className="section">
@@ -33,10 +34,7 @@ const SpaContainer = () => {
           >
             <i className="fas fa-arrow-left"></i> Vissza az app választóhoz
           </button>
-          <div style={{ textAlign: 'center', padding: '40px' }}>
-            <h2>Second App - Fejlesztés alatt</h2>
-            <p>Hamarosan érkezik a másik alkalmazás!</p>
-          </div>
+          <MemoryGame />
         </section>
       </div>
     );
@@ -51,7 +49,7 @@ const SpaContainer = () => {
           <div className="app-card">
             <div className="app-card-header">
               <i className="fas fa-cloud"></i>
-              <h3>First App</h3>
+              <h3>Weather App</h3>
             </div>
             <div className="app-card-content">
               <p>
@@ -69,16 +67,20 @@ const SpaContainer = () => {
           </div>
           <div className="app-card">
             <div className="app-card-header">
-              <i className="fas fa-tree"></i>
-              <h3>Second App</h3>
+              <i className="fas fa-puzzle-piece"></i>
+              <h3>Memory Game</h3>
             </div>
             <div className="app-card-content">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Interaktív memóriafejlesztő alkalmazás 
+                dinamikus állapotkezeléssel és 3D-s CSS animációkkal.
               </p>
             </div>
-            <button type="button" className="btn btn-save">
+            <button
+              type="button"
+              className="btn btn-save"
+              onClick={() => setCurrentApp('memory')}
+            >
               Megnézem
             </button>
           </div>
