@@ -29,15 +29,25 @@ const MemoryGame = () => {
     initializeGame();
   }, []);
 
-  
+  const checkMatch = (first, second) => {
+    if (cards[first].icon === cards[second].icon) {
+      setSolved([...solved, first, second]);
+      setFlipped([]);
+      setDisabled(false);
+    } else {
+      setTimeout(() => {
+        setFlipped([]);
+        setDisabled(false);
+      }, 1000);
+    }
+  };
 
   return (
     <div className="memory-game-wrapper">
       <div className="game-header">
-        <h3><i className="fas fa-brain"></i> Memória Játék</h3>
-        <button className="btn btn-outline" onClick={initializeGame}>Új játék</button>
+        <h2><i className="fas fa-brain"></i> Memória Játék</h2>
       </div>
-
+      <button className="btn new-game-btn" onClick={initializeGame}>Új játék</button>
       <div className="card-grid">
         {cards.map((card, index) => {
           const isFlipped = flipped.includes(index) || solved.includes(index);
@@ -47,7 +57,7 @@ const MemoryGame = () => {
             <div 
               key={card.id} 
               className={`memory-card ${isFlipped ? 'flipped' : ''} ${isSolved ? 'solved' : ''}`}
-              onClick={() => {}}
+              onClick={() => handleClick(index)}
             >
               <div className="card-inner">
                 <div className="card-front">
