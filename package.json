@@ -12,7 +12,7 @@
     "build:react": "npm run build --prefix react",
     "build:projects": "npm run build --prefix react-projects",
     "build": "npm run build:react && npm run build:projects",
-    "start": "npm run dev --prefix react-projects",
+    "start": "npm run dev --prefix react-projects && npm run dev --prefix react",
     "preview": "npm run preview --prefix react-projects",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
