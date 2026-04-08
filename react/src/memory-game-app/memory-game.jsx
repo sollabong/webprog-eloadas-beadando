@@ -10,7 +10,7 @@ const MemoryGame = () => {
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]); 
   const [solved, setSolved] = useState([]);  
-  const [_disabled, setDisabled] = useState(false); 
+  const [disabled, setDisabled] = useState(false); 
 
   const initializeGame = () => {
     const duplicatedIcons = [...CARD_ICONS, ...CARD_ICONS];
@@ -28,6 +28,18 @@ const MemoryGame = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     initializeGame();
   }, []);
+
+  const handleClick = (index) => {
+    if (disabled || flipped.includes(index) || solved.includes(index)) return;
+
+    if (flipped.length === 0) {
+      setFlipped([index]);
+    } else if (flipped.length === 1) {
+      setFlipped([flipped[0], index]);
+      setDisabled(true);
+      checkMatch(flipped[0], index);
+    }
+  };
 
   const checkMatch = (first, second) => {
     if (cards[first].icon === cards[second].icon) {
