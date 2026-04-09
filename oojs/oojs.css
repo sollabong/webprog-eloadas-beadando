@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#ui {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-top: 32px;
+}
+
+#game-board {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: none;
+}
