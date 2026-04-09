@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>OOJS Snake - Moduláris</title>
+    <link rel="stylesheet" href="oojs.css">
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <div id="ui">
+        <button id="btn">JÁTÉK INDÍTÁSA</button>
+        <div id="score">Pontszám: 0</div>
+    </div>
+    
+    <div id="game-board"></div>
+
+    <script src="js/grid-element.js"></script>
+    <script src="js/food.js"></script>
+    <script src="js/super-food.js"></script>
+    <script src="js/snake-game.js"></script>
+
+    <script>
+        document.getElementById('btn').onclick = function() {
+            this.style.display = 'none';
+            document.getElementById('game-board').style.display = 'block';
+            new SnakeGame();
+        };
+    </script>
+</body>
+</html>
