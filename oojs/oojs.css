@@ -1,74 +1,74 @@
 #ui {
-    text-align: center;
+  text-align: center;
 }
 
 #score {
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--primary);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--primary);
 }
 
 .btn-start {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 #game-board {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background-color: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    display: none;
-    margin: 24px auto;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: none;
+  margin: 24px auto;
 }
 
 .game-instructions {
-    margin: auto;
-    color: var(--text-secondary);
+  margin: auto;
+  color: var(--text-secondary);
 }
 
 .snake-container {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .dot {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    box-sizing: border-box;
-    border: 1px solid #1a1a1a;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid #1a1a1a;
 }
 
 .snake-head {
-    background-color: var(--primary);
-    z-index: 10;
-    border-radius: 4px;
+  background-color: var(--primary);
+  z-index: 10;
+  border-radius: 4px;
 }
 
 .snake-body {
-    background-color: #90caf9c4;
-    border-radius: 2px;
+  background-color: #90caf9c4;
+  border-radius: 2px;
 }
 
 .food {
-    background-color: #3ce7a0;
-    border-radius: 50%;
+  background-color: #3ce7a0;
+  border-radius: 50%;
 }
 
 .super-food {
-    background-color: #ffca28;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #ffca28;
-    z-index: 5;
-    animation: pulse 0.5s infinite alternate;
+  background-color: #ffca28;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ffca28;
+  z-index: 5;
+  animation: pulse 0.5s infinite alternate;
 }
 
 @keyframes pulse {
-    from {
-        transform: scale(0.8);
-    }
-    to {
-        transform: scale(1.1);
-    }
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }
