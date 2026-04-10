@@ -72,8 +72,8 @@ const SpaContainer = () => {
             </div>
             <div className="app-card-content">
               <p>
-                Interaktív memóriafejlesztő alkalmazás 
-                dinamikus állapotkezeléssel és 3D-s CSS animációkkal.
+                Interaktív memóriafejlesztő alkalmazás dinamikus
+                állapotkezeléssel és 3D-s CSS animációkkal.
               </p>
             </div>
             <button

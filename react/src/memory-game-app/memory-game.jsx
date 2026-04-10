@@ -2,22 +2,28 @@ import { useState, useEffect } from 'react';
 import './memory-game.css';
 
 const CARD_ICONS = [
-  'fa-ghost', 'fa-robot', 'fa-rocket', 'fa-otter', 
-  'fa-dragon', 'fa-hippo', 'fa-bolt', 'fa-cloud-moon'
+  'fa-ghost',
+  'fa-robot',
+  'fa-rocket',
+  'fa-otter',
+  'fa-dragon',
+  'fa-hippo',
+  'fa-bolt',
+  'fa-cloud-moon',
 ];
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);
-  const [flipped, setFlipped] = useState([]); 
-  const [solved, setSolved] = useState([]);  
-  const [disabled, setDisabled] = useState(false); 
+  const [flipped, setFlipped] = useState([]);
+  const [solved, setSolved] = useState([]);
+  const [disabled, setDisabled] = useState(false);
 
   const initializeGame = () => {
     const duplicatedIcons = [...CARD_ICONS, ...CARD_ICONS];
     const shuffled = duplicatedIcons
       .sort(() => Math.random() - 0.5)
       .map((icon, index) => ({ id: index, icon }));
-    
+
     setCards(shuffled);
     setSolved([]);
     setFlipped([]);
@@ -57,17 +63,21 @@ const MemoryGame = () => {
   return (
     <div className="memory-game-wrapper">
       <div className="game-header">
-        <h2><i className="fas fa-brain"></i> Memória Játék</h2>
+        <h2>
+          <i className="fas fa-brain"></i> Memória Játék
+        </h2>
       </div>
-      <button className="btn new-game-btn" onClick={initializeGame}>Új játék</button>
+      <button className="btn new-game-btn" onClick={initializeGame}>
+        Új játék
+      </button>
       <div className="card-grid">
         {cards.map((card, index) => {
           const isFlipped = flipped.includes(index) || solved.includes(index);
           const isSolved = solved.includes(index);
 
           return (
-            <div 
-              key={card.id} 
+            <div
+              key={card.id}
               className={`memory-card ${isFlipped ? 'flipped' : ''} ${isSolved ? 'solved' : ''}`}
               onClick={() => handleClick(index)}
             >
