@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOJS Snake Game - Beadandó</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="oojs.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Web programozás-1 Előadás Házi feladat</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Főoldal</a></li>
+          <li>
+            <a href="../javascript-crud/javascript.html">Javascript CRUD</a>
+          </li>
+          <li><a href="http://localhost:5173/react.html">React CRUD</a></li>
+          <li><a href="http://localhost:5173/spa.html">SPA</a></li>
+          <li><a href="../fetchapi/fetchapi.html">Fetch API</a></li>
+          <li><a href="http://localhost:5173/axios.html">Axios CRUD</a></li>
+          <li><a href="oojs.html">OOJS App</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="snake-container">
+        <h2>OOJS Graphic app - Snake</h2>
+        <div class="game-instructions">
+          <p>
+            <i class="fa-solid fa-keyboard"></i> Használd a nyilakat az
+            irányításhoz!
+          </p>
+          <p>
+            <i class="fa-solid fa-star" style="color: #ffca28"></i> A Szuperkaja
+            +50 pontot ér és 5 négyzettel megnöveszt!
+          </p>
+        </div>
+      </section>
+      <section class="snake-container">
+        <div id="ui">
+          <button id="btn" class="btn-start">JÁTÉK INDÍTÁSA</button>
+          <div id="score">Pontszám: 0</div>
+        </div>
+        <div id="game-board"></div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-names">
+          <span class="footer-name"
+            >Sipos Gábor János <span class="footer-neptun"> RUG70U</span></span
+          >
+          <span class="footer-name"
+            >Soltész-Kéri Gábor <span class="footer-neptun"> D0345Y</span></span
+          >
+          <span class="footer-name"
+            >Takács Dániel Zoltán
+            <span class="footer-neptun"> F5MJUS</span></span
+          >
+        </div>
+        <div class="footer-copyright">
+          © 2026 Web programozás-1 Előadás Beadandó projektmunka
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/grid-element.js"></script>
+    <script src="js/food.js"></script>
+    <script src="js/super-food.js"></script>
+    <script src="js/snake-game.js"></script>
+
+    <script>
+      document.getElementById('btn').onclick = function () {
+        this.style.display = 'none';
+        document.getElementById('game-board').style.display = 'block';
+        new SnakeGame();
+      };
+    </script>
+  </body>
+</html>
