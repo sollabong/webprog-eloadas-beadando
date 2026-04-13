@@ -5,8 +5,6 @@ import GenreLegend from '../../../shared-components/genre-legend/genre-legend.js
 import CinemaSelector from '../cinema-selector/cinema-selector.jsx';
 import './movies-advanced.css';
 
-const API_URL = 'http://localhost/webprog-eloadas-beadando/server/api.php';
-
 const genreColors = {
   dráma: '#00bcd4',
   vígjáték: '#ff9800',
@@ -59,16 +57,19 @@ const MoviesAdvanced = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await loadFilms();
-      const moziRes = await fetch(
-        'http://localhost/webprog-eloadas-beadando/server/api.php?type=mozi'
-      );
-      const moziData = await moziRes.json();
-      setMoziLista(moziData || []);
-    };
-    fetchData();
+  const loadCinemas = async () => {
+    try {
+      const data = await movieService.getCinemas();
+      setMoziLista(data);
+    } catch (error) {
+      console.error('Hiba a mozik betöltésekor:', error);
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(async () => {
+    await loadFilms();
+    await loadCinemas();
   }, []);
 
   const handleSave = async (e) => {
