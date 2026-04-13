@@ -11,16 +11,16 @@ const Header = () => {
             <a href="/javascript-crud/javascript.html">Javascript CRUD</a>
           </li>
           <li>
-            <a href="/react.html">React CRUD</a>
+            <a href="/react-projects/react.html">React CRUD</a>
           </li>
           <li>
-            <a href="/spa.html">SPA</a>
+            <a href="/react-projects/spa.html">SPA</a>
           </li>
           <li>
             <a href="/fetchapi/fetchapi.html">Fetch API</a>
           </li>
           <li>
-            <a href="/axios.html">Axios CRUD</a>
+            <a href="/react-projects/axios.html">Axios CRUD</a>
           </li>
           <li>
             <a href="/oojs/oojs.html">OOJS App</a>

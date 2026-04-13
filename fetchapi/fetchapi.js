@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost/webprog-eloadas-beadando/server/api.php';
+const API_URL = 'https://gabor-dani-gabor.great-site.net/server/api.php';
 let films = [];
 let editId = null;
 
