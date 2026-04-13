@@ -8,6 +8,11 @@ const movieService = {
     return response.data;
   },
 
+  getCinemas: async () => {
+    const response = await axios.get(`${API_URL}?type=mozi`);
+    return response.data;
+  },
+
   create: async (movieData) => {
     const dataToSend = {
       ...movieData,
