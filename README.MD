@@ -5,7 +5,6 @@ Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves bead
 ## Csapattagok és munkamegosztás
 
 - Sipos Gábor János RUG70U
-- Soltész-Kéri Gábor D0345Y
 - Takács Dániel Zoltán F5MJUS
 
 ## Alkalmazás felépítése
@@ -23,11 +22,3 @@ Ez a projekt a **Web-programozás 1** kurzus keretében készült féléves bead
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+), React
 - **Backend:** PHP, MySQL (XAMPP környezetben tesztelve)
 - **Verziókövetés:** Git & GitHub
-
-## Helyi futtatás
-
-`npm install` után `npm run dev` (a React részhez).
-
-## Elérhetőség (Online tárhely)
-
-[TÁRHELY!!!]
